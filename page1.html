@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Dario Pons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/common_style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header id="up">
+    <div class="logo">
+        <img src="images/common/logo-pc-2.png" alt="logo web">
+        <h1 class="company">PCreate</h1>    
+    </div>
+</header>
+<section>
+    <nav>
+        <ul class="menu_movil menu_drop">
+        <li><a href="#menu" class="size_icon"> <i class="fa fa-bars"></i> </a>
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page1.html">Sales</a></li>
+        <li><a href="page2.html">Questionnaire</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+        </li>
+        </ul>
+        <ul class="menu_pc menu_drop">
+        <li class="col-4 col-s-4"><a href="index.html">Home</a></li>
+        <li class="col-4 col-s-4"><a href="page1.html">Sales</a></li>
+        <li class="col-4 col-s-4"><a href="page2.html">Questionnaire</a></li>
+        <li class="col-4 col-s-4"><a href="gallery.html">Gallery</a></li>  
+        </ul>
+    </nav>
+</section>
+
+
+<h2 class="company">PC Features</h2>
+    <table id="demo" class="device">
+    </table>
+    <script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myFunction(this);
+    }
+    };
+    // Abrimos el archivo que está alojado en el servidor cd_catalog.xml
+    xmlhttp.open("GET", "table.xml" , true);
+    xmlhttp.send();
+    function myFunction(xml) {
+    var x, i, xmlDoc, table;
+    xmlDoc = xml.responseXML;
+    table = "<tr><th>Component</th><th>Model</th></tr>";
+    // Obtenemos todos los nodos denominados CD del archivo xml
+    x = xmlDoc.getElementsByTagName("component");
+    // Hacemos un bucle recorriendo todos los elementos CD
+    for (i = 0; i < x.length; i++) {
+    // Del elemento X, obtenemos del primer elemento denominado "artist"
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("model")[0].childNodes[0].nodeValue +
+    "</td><td>"
+    }
+    document.getElementById("demo").innerHTML = table;
+    }
+    </script>
+
+
+<br>
+<div class="up">
+    <a href="#up"> <img src="images/common/arrow.png" id="uparrow"></a>
+</div>
+<hr>
+<footer>
+  <div class="col-6 col-s-6">
+      <img class="col-5" src="images/common/footer.png" alt="social media">
+
+      <p class="Copyright">Copyright © 2018 Insider Inc. All rights reserved. <br>
+         Registration on or use of this site constitutes <br>
+         acceptance of our <a href="https://www.pccomponentes.com/">Terms of Service</a>, <br>
+         <a href="https://www.pccomponentes.com/">Privacy Policy</a> and <a href="https://www.pccomponentes.com/">Cookies Policy</a>.
+      </p>
+  </div>    
+</footer>
+</body>
+</html>

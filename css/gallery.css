@@ -1,0 +1,11 @@
+.container2{
+    display:flex;
+    flex-wrap:wrap;
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+.gall_size{
+    width: 20%;
+}
